@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Étape 2 : Exécution (On change openjdk par eclipse-temurin)
+# Étape 2 : Exécution (On utilise Temurin à la place d'OpenJDK)
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
